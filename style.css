@@ -1,0 +1,59 @@
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, #fff8f0, #ffe4ec);
+    color: #333;
+    text-align: center;
+    overflow-x: hidden;
+}
+.hero {
+    padding: 2em 1em;
+}
+.message {
+    padding: 2em 1em;
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+}
+.gallery .photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    padding: 2em;
+}
+.polaroid {
+    width: 150px;
+    height: auto;
+    border: 10px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transform: rotate(-2deg);
+}
+.cake-section {
+    padding: 2em;
+}
+.cake {
+    font-size: 2em;
+    margin-top: 1em;
+}
+.hidden {
+    display: none;
+}
+#balloon-container {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+.balloon {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    background: red;
+    border-radius: 50% 50% 50% 50%;
+    animation: rise 5s linear forwards;
+}
+@keyframes rise {
+    0% { bottom: 0; }
+    100% { bottom: 100%; opacity: 0; }
+}
