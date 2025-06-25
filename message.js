@@ -14,7 +14,7 @@ On this special day, I just want to remind you of a few things:
 • And most importantly — you are deeply loved — by everyone lucky enough to know you.
 
 Here’s to the late-night talks, the spontaneous adventures, the “remember when” moments, and the thousands of memories we’ve yet to make. I hope today is filled with the kind of joy you bring into the world — genuine, vibrant, and unforgettable.
-So blow out the candles, make a wild wish, and know that I’ll always be by your side — cheering you on, annoying you , roasting you, and celebrating your existence. Because best friends like you? They’re once in a lifetime. And I promise, this friendship? It’s forever.
+So blow out the candles, make a wild wish, and know that I’ll always be by your side — cheering you on, annoying you , roasting you, and celebrating your existence. Because best friends like you? They’re once in a lifetime. And I promise, this friendship? It’s forever.🤞🏻
 
 Happy Birthday, Dear dost . Never stop being the amazing person you are. 💕🎂🎉
 Let’s make this year the most magical one yet.
