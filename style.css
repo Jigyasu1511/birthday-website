@@ -1,59 +1,103 @@
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom right, #fff8f0, #ffe4ec);
-    color: #333;
-    text-align: center;
-    overflow-x: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #dcecf9, #e8e4f2);
+  color: #444;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+nav {
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+}
+nav a {
+  color: #7b5dc9;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+nav a:hover {
+  color: #ab84ff;
+}
+section {
+  max-width: 960px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+h1, h2 {
+  color: #7b5dc9;
+  margin-bottom: 20px;
 }
 .hero {
-    padding: 2em 1em;
+  margin-top: 80px;
 }
-.message {
-    padding: 2em 1em;
-    max-width: 800px;
-    margin: auto;
-    text-align: left;
+.glow {
+  font-size: 2.5rem;
+  color: #7b5dc9;
+  text-shadow: 0 0 10px #c2afff, 0 0 20px #c2afff;
 }
-.gallery .photos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1em;
-    padding: 2em;
+.typewriter {
+  font-size: 1.2rem;
+  border-right: .15em solid #7b5dc9;
+  white-space: pre-wrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 8s steps(60, end) forwards;
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
 }
 .polaroid {
-    width: 150px;
-    height: auto;
-    border: 10px solid white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transform: rotate(-2deg);
+  border: 8px solid #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  width: 200px;
+  margin: 10px;
+  transition: transform 0.3s ease;
 }
-.cake-section {
-    padding: 2em;
+.polaroid:hover {
+  transform: scale(1.05) rotate(1deg);
 }
-.cake {
-    font-size: 2em;
-    margin-top: 1em;
-}
-.hidden {
-    display: none;
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 #balloon-container {
-    height: 300px;
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  height: 400px;
+  background: radial-gradient(#e2dcff, #f5f0ff);
+  overflow: hidden;
+  border-radius: 12px;
+  margin-top: 20px;
 }
 .balloon {
-    position: absolute;
-    width: 50px;
-    height: 70px;
-    background: red;
-    border-radius: 50% 50% 50% 50%;
-    animation: rise 5s linear forwards;
+  position: absolute;
+  bottom: -100px;
+  width: 60px;
+  height: 80px;
+  border-radius: 50% 50% 45% 45%;
+  background: #d79ff4;
+  cursor: pointer;
+  animation: rise 7s linear forwards;
 }
 @keyframes rise {
-    0% { bottom: 0; }
-    100% { bottom: 100%; opacity: 0; }
+  to {
+    bottom: 100%;
+    opacity: 0;
+  }
+}
+.confetti {
+  font-size: 2rem;
+  animation: float 1.5s infinite ease-in-out alternate;
+}
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
 }
