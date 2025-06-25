@@ -12,7 +12,7 @@ you’re the whole damn dessert buffet 🍰❤️
 May your life be as sweet, colourful, and unforgettable 
 as this moment right here. The universe isn’t ready for your glow."
 
-💫Happy Birthday💫
+💫Happiest Birthday💫
 
 `;
   wishDiv.textContent = message;
