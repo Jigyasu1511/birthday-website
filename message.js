@@ -20,7 +20,7 @@ Happy Birthday, Dear dost . Never stop being the amazing person you are. 💕�
 Let’s make this year the most magical one yet.
 
 With all my heart,
-Your Best Friend Jiggyy 
+Your Best Friend Jiggyy😊 
 `;
 const target = document.getElementById("typed-text");
 let i = 0;
