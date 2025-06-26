@@ -117,6 +117,7 @@
     <a href="index.html">Home</a>
     <a href="message.html">Message</a>
     <a href="gallery.html">Gallery</a>
+    <a href="game.html">Game</a>
     <a href="cake.html">Cake</a>
     <a href="thankyou.html">Thank You</a>
   </nav>
@@ -140,11 +141,20 @@
       balloon.style.animationDuration = (4 + Math.random() * 2) + "s";
       document.body.appendChild(balloon);
 
-      balloon.addEventListener("click", () => {
-        balloon.remove();
-        popped++;
-        if (popped === totalBalloons) {
-          document.getElementById("win-message").classList.remove("hidden");
+     balloon.addEventListener("click", function () {
+  this.style.transition = "transform 0.3s ease, opacity 0.3s ease";
+  this.style.transform = "scale(0)";
+  this.style.opacity = "0";
+
+  setTimeout(() => {
+    this.remove();
+    popped++;
+    if (popped === totalBalloons) {
+      document.getElementById("win-message").classList.remove("hidden");
+    }
+  }, 300);
+});
+
         }
       });
     }
