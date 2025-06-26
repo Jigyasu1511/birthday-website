@@ -8,52 +8,57 @@
   <style>
     body {
       background: #e3f2fd;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      margin: 0;
       text-align: center;
-      font-family: "Poppins", sans-serif;
     }
-
-    h1 {
-      margin-top: 50px;
-      font-size: 2.5rem;
+    nav {
+      background: white;
+      padding: 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
       color: #5c4d91;
+      font-weight: bold;
     }
-
+    h1 {
+      margin-top: 30px;
+      color: #5c4d91;
+      font-size: 2.2rem;
+    }
     .balloon {
-      width: 60px;
       position: absolute;
+      width: 50px;
+      height: 70px;
+      background: radial-gradient(circle at 30% 30%, #fff6, transparent 60%), #ffadad;
+      border: 2px solid #ff6f91;
+      border-radius: 50% 50% 45% 45%;
       cursor: pointer;
       animation: float 6s linear infinite;
-      z-index: 1;
     }
-
+    .balloon::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 10px;
+      background: #ff6f91;
+      border-radius: 3px;
+    }
     @keyframes float {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-      }
-      100% {
-        transform: translateY(-120vh) rotate(360deg);
-      }
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-150vh) rotate(360deg); }
     }
-
     #win-message {
       display: none;
       font-size: 2rem;
       color: #ff4081;
       margin-top: 100px;
-    }
-
-    nav {
-      background: white;
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      font-weight: bold;
-    }
-
-    nav a {
-      color: #5c4d91;
-      text-decoration: none;
     }
   </style>
 </head>
@@ -64,7 +69,7 @@
     <a href="gallery.html">Gallery</a>
     <a href="game.html">Game</a>
     <a href="cake.html">Cake</a>
-    <a href="thankyou.html">Thank You</a>
+    <a href="thankyou.html">Thank You</a>
   </nav>
 
   <h1>🎈 Pop All the Balloons! 🎈</h1>
@@ -74,14 +79,13 @@
     const totalBalloons = 10;
     let popped = 0;
 
-    function createBalloon() {
-      const balloon = document.createElement("img");
-      balloon.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Red_balloon_icon.svg/768px-Red_balloon_icon.svg.png";
-      balloon.className = "balloon";
-      balloon.style.left = Math.random() * 90 + "vw";
-      balloon.style.top = "100vh";
+    for (let i = 0; i < totalBalloons; i++) {
+      const b = document.createElement("div");
+      b.className = "balloon";
+      b.style.left = Math.random() * 90 + "%";
+      b.style.animationDuration = (4 + Math.random() * 2) + "s";
 
-      balloon.addEventListener("click", function () {
+      b.addEventListener("click", function () {
         this.style.transition = "transform 0.3s ease, opacity 0.3s ease";
         this.style.transform = "scale(0)";
         this.style.opacity = "0";
@@ -94,11 +98,7 @@
         }, 300);
       });
 
-      document.body.appendChild(balloon);
-    }
-
-    for (let i = 0; i < totalBalloons; i++) {
-      setTimeout(createBalloon, i * 300); // slight delay for spacing
+      document.body.appendChild(b);
     }
   </script>
 </body>
