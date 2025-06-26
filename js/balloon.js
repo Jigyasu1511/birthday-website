@@ -1,6 +1,7 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const gameArea = document.getElementById("game-area");
-  const totalBalloons = 15;
+  const totalBalloons = 12;
   let popped = 0;
 
   for (let i = 0; i < totalBalloons; i++) {
@@ -8,8 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     balloon.classList.add("balloon");
 
     const randomLeft = Math.random() * 90;
-    const delay = Math.random() * 6;
-
+    const delay = Math.random() * 5;
     balloon.style.left = `${randomLeft}vw`;
     balloon.style.animationDelay = `${delay}s`;
 
@@ -23,19 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showWin() {
-    gameArea.innerHTML = ''; // Clear balloons
-
+    gameArea.innerHTML = '';
     const winBox = document.createElement('div');
     winBox.style.textAlign = 'center';
     winBox.style.marginTop = '20vh';
 
     winBox.innerHTML = `
-      <img src="https://media.giphy.com/media/3ohhwF34cGDoFFhRfy/giphy.gif" width="120">
-      <h1 style="color:#ff6f61; font-size: 28px;">🎁 You Won My Friendship! 🎉</h1>
-      <img src="https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif" width="160">
+      <img src="https://media.giphy.com/media/3ohhwF34cGDoFFhRfy/giphy.gif" width="130">
+      <h1 style="color:#ff6f61;">🎁 You Won My Friendship! 🎉</h1>
+      <img src="https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif" width="180">
       <br><br>
-      <a href="thankyou.html" style="font-size: 18px; text-decoration: none; color: #222;">Continue ➤</a>
-    `;
+      <a href="thankyou.html" style="font-size: 18px; text-decoration: none; background:#ff6f61; padding:10px 20px; color:white; border-radius:6px;">Next ➤</a>`;
+
     gameArea.appendChild(winBox);
   }
 });
