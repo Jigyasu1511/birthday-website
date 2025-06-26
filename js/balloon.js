@@ -23,12 +23,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showWin() {
-    gameArea.innerHTML = `
-      <div style="text-align:center; margin-top: 20vh;">
-        <img src="https://media.giphy.com/media/3ohhwF34cGDoFFhRfy/giphy.gif" width="140">
-        <h1 style="color:#ff6f61;">🎁 You Won My Friendship! 🎉</h1>
-        <img src="https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif" width="180">
-      </div>
-    `;
-  }
+  const gameArea = document.getElementById("game-area");
+
+  // Clear everything inside game area
+  gameArea.innerHTML = '';
+
+  // Add win message content
+  const winBox = document.createElement('div');
+  winBox.style.textAlign = 'center';
+  winBox.style.marginTop = '20vh';
+
+  winBox.innerHTML = `
+    <img src="https://media.giphy.com/media/3ohhwF34cGDoFFhRfy/giphy.gif" width="140">
+    <h1 style="color:#ff6f61;">🎁 You Won My Friendship! 🎉</h1>
+    <img src="https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif" width="180">
+  `;
+
+  gameArea.appendChild(winBox);
+  document.body.style.background = '#fff5f8'; // Optional: Change background
+}
+
 });
