@@ -1,60 +1,34 @@
-let popped = 0;
-const totalBalloons = 10;
-
-function popBalloon(balloon) {
-  balloon.style.display = "none";
-  popped++;
-
-  if (popped === totalBalloons) {
-    celebrateVictory();
-  }
-}
-
-function celebrateVictory() {
-  // Clear the game area
+document.addEventListener("DOMContentLoaded", () => {
   const gameArea = document.getElementById("game-area");
-  gameArea.innerHTML = "";
+  const totalBalloons = 15;
+  let popped = 0;
 
-  // Change background
-  document.body.style.backgroundColor = "#fff4e6"; // pastel cream
-  document.body.style.backgroundImage = "url('https://i.imgur.com/8P4o7a5.gif')"; // confetti animation
+  for (let i = 0; i < totalBalloons; i++) {
+    const balloon = document.createElement("div");
+    balloon.classList.add("balloon");
 
-  // Create animated gift box
-  const giftBox = document.createElement("img");
-  giftBox.src = "https://i.imgur.com/Uc1Zojy.gif";
-  giftBox.alt = "Gift Box";
-  giftBox.style.width = "200px";
-  giftBox.style.display = "block";
-  giftBox.style.margin = "20px auto";
+    const randomLeft = Math.random() * 90; // percent
+    const delay = Math.random() * 5;
 
-  // Create dancing character
-  const dancer = document.createElement("img");
-  dancer.src = "https://i.imgur.com/GXjIN9K.gif";
-  dancer.alt = "Dancing Character";
-  dancer.style.width = "150px";
-  dancer.style.display = "block";
-  dancer.style.margin = "20px auto";
+    balloon.style.left = `${randomLeft}vw`;
+    balloon.style.animationDelay = `${delay}s`;
 
-  // Create final message
-  const message = document.createElement("div");
-  message.innerText = "🎉 You Won My Friendship! 🎉";
-  message.style.textAlign = "center";
-  message.style.fontSize = "28px";
-  message.style.fontWeight = "bold";
-  message.style.color = "#ff5e78";
-  message.style.marginTop = "20px";
-  message.style.fontFamily = "'Segoe UI', sans-serif";
+    balloon.addEventListener("click", () => {
+      balloon.remove();
+      popped++;
+      if (popped === totalBalloons) showWin();
+    });
 
-  // Append all elements
-  gameArea.appendChild(giftBox);
-  gameArea.appendChild(dancer);
-  gameArea.appendChild(message);
-}
+    gameArea.appendChild(balloon);
+  }
 
-// Initialize balloon click listeners on page load
-window.onload = function () {
-  const balloons = document.querySelectorAll(".balloon");
-  balloons.forEach(balloon => {
-    balloon.addEventListener("click", () => popBalloon(balloon));
-  });
-};
+  function showWin() {
+    gameArea.innerHTML = `
+      <div style="text-align:center; margin-top: 20vh;">
+        <img src="https://media.giphy.com/media/3ohhwF34cGDoFFhRfy/giphy.gif" width="140">
+        <h1 style="color:#ff6f61;">🎁 You Won My Friendship! 🎉</h1>
+        <img src="https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif" width="180">
+      </div>
+    `;
+  }
+});
