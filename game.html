@@ -23,21 +23,65 @@
       50% { transform: translateY(-30px); }
       100% { transform: translateY(0); }
     }
+    .balloon {
+  width: 80px;
+  height: 110px;
+  border-radius: 50% 50% 45% 45%;
+  background: radial-gradient(circle at 35% 35%, #fff6, transparent 60%), #ff9aa2;
+  border: 2px solid #ff6f61;
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  animation: float 4s infinite ease-in-out;
+  cursor: pointer;
+}
+/* knot */
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 12px;
+  background: #ff6f61;
+  border-radius: 3px;
+}
+/* string */
+.balloon::before {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  width: 1px;
+  height: 60px;
+  background: #aaa;
+  transform: translateX(-50%);
+}
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-30px); }
+  100% { transform: translateY(0); }
+}
+
   </style>
 </head>
 <body>
   <h1>Pop All the Balloons! 🎈</h1>
   <div id="game-area">
-    <img class="balloon" src="https://i.imgur.com/3vX1Q3N.png" alt="Balloon">
-    <img class="balloon" src="https://i.imgur.com/3vX1Q3N.png" alt="Balloon">
-    <img class="balloon" src="https://i.imgur.com/3vX1Q3N.png" alt="Balloon">
-    <img class="balloon" src="https://i.imgur.com/3vX1Q3N.png" alt="Balloon">
-    <img class="balloon" src="https://i.imgur.com/3vX1Q3N.png" alt="Balloon">
-    <img class="balloon" src="https://i.imgur.com/3vX1Q3N.png" alt="Balloon">
-    <img class="balloon" src="https://i.imgur.com/3vX1Q3N.png" alt="Balloon">
-    <img class="balloon" src="https://i.imgur.com/3vX1Q3N.png" alt="Balloon">
-    <img class="balloon" src="https://i.imgur.com/3vX1Q3N.png" alt="Balloon">
-    <img class="balloon" src="https://i.imgur.com/3vX1Q3N.png" alt="Balloon">
+    <div class="balloon"></div> 
+    <div class="balloon"></div> 
+    <div class="balloon"></div> 
+    <div class="balloon"></div> 
+    <div class="balloon"></div> 
+    <div class="balloon"></div> 
+    <div class="balloon"></div> 
+    <div class="balloon"></div> 
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+
+
   </div>
 
   <script src="js/balloon.js"></script>
