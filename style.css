@@ -1,103 +1,70 @@
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #dcecf9, #e8e4f2);
-  color: #444;
-  min-height: 100vh;
-  transition: all 0.3s ease;
-}
-nav {
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 15px;
-}
-nav a {
-  color: #7b5dc9;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s;
-}
-nav a:hover {
-  color: #ab84ff;
-}
-section {
-  max-width: 960px;
-  margin: auto;
-  padding: 40px 20px;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #e4f0f5;
+  color: #333;
   text-align: center;
 }
-h1, h2 {
-  color: #7b5dc9;
-  margin-bottom: 20px;
+.navbar {
+  background: #ffffff;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-.hero {
-  margin-top: 80px;
+.navbar a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #7b2cbf;
+  font-weight: bold;
 }
-.glow {
-  font-size: 2.5rem;
-  color: #7b5dc9;
-  text-shadow: 0 0 10px #c2afff, 0 0 20px #c2afff;
+.navbar a:hover {
+  text-decoration: underline;
 }
-.typewriter {
-  font-size: 1.2rem;
-  border-right: .15em solid #7b5dc9;
-  white-space: pre-wrap;
-  overflow: hidden;
-  width: 0;
-  animation: typing 8s steps(60, end) forwards;
-}
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-.polaroid {
-  border: 8px solid #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  width: 200px;
-  margin: 10px;
-  transition: transform 0.3s ease;
-}
-.polaroid:hover {
-  transform: scale(1.05) rotate(1deg);
-}
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.game-page {
+  background: #f3e5f5;
 }
 #balloon-container {
   position: relative;
-  height: 400px;
-  background: radial-gradient(#e2dcff, #f5f0ff);
+  width: 100%;
+  height: 80vh;
   overflow: hidden;
-  border-radius: 12px;
-  margin-top: 20px;
 }
 .balloon {
   position: absolute;
-  bottom: -100px;
   width: 60px;
-  height: 80px;
-  border-radius: 50% 50% 45% 45%;
-  background: #d79ff4;
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+  0% { bottom: -80px; }
+  100% { bottom: 100vh; }
+}
+#win-message {
+  margin-top: 30px;
+}
+.hidden {
+  display: none;
+}
+.gift, .dance {
+  width: 150px;
+  margin: 10px;
+}
+.cake-container {
+  margin-top: 50px;
+}
+.cake {
+  font-size: 2em;
   cursor: pointer;
-  animation: rise 7s linear forwards;
+  padding: 20px;
+  background: #ffe0e0;
+  border-radius: 10px;
+  display: inline-block;
 }
-@keyframes rise {
-  to {
-    bottom: 100%;
-    opacity: 0;
-  }
-}
-.confetti {
-  font-size: 2rem;
-  animation: float 1.5s infinite ease-in-out alternate;
-}
-@keyframes float {
-  from { transform: translateY(0); }
-  to { transform: translateY(-10px); }
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #7b2cbf;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
 }

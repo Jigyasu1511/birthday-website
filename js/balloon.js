@@ -1,40 +1,24 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  const gameArea = document.getElementById("game-area");
-  const totalBalloons = 12;
+  const container = document.getElementById("balloon-container");
+  const winMessage = document.getElementById("win-message");
+  const balloonCount = 15;
   let popped = 0;
 
-  for (let i = 0; i < totalBalloons; i++) {
-    const balloon = document.createElement("div");
+  for (let i = 0; i < balloonCount; i++) {
+    const balloon = document.createElement("img");
+    balloon.src = "https://i.imgur.com/3J8jXxH.png";
     balloon.classList.add("balloon");
-
-    const randomLeft = Math.random() * 90;
-    const delay = Math.random() * 5;
-    balloon.style.left = `${randomLeft}vw`;
-    balloon.style.animationDelay = `${delay}s`;
+    balloon.style.left = Math.random() * 90 + "vw";
+    balloon.style.animationDuration = 4 + Math.random() * 3 + "s";
+    container.appendChild(balloon);
 
     balloon.addEventListener("click", () => {
       balloon.remove();
       popped++;
-      if (popped === totalBalloons) showWin();
+      if (popped === balloonCount) {
+        winMessage.classList.remove("hidden");
+      }
     });
-
-    gameArea.appendChild(balloon);
-  }
-
-  function showWin() {
-    gameArea.innerHTML = '';
-    const winBox = document.createElement('div');
-    winBox.style.textAlign = 'center';
-    winBox.style.marginTop = '20vh';
-
-    winBox.innerHTML = `
-      <img src="https://media.giphy.com/media/3ohhwF34cGDoFFhRfy/giphy.gif" width="130">
-      <h1 style="color:#ff6f61;">🎁 You Won My Friendship! 🎉</h1>
-      <img src="https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif" width="180">
-      <br><br>
-      <a href="thankyou.html" style="font-size: 18px; text-decoration: none; background:#ff6f61; padding:10px 20px; color:white; border-radius:6px;">Next ➤</a>`;
-
-    gameArea.appendChild(winBox);
   }
 });
