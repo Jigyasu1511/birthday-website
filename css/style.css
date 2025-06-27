@@ -60,6 +60,27 @@ h1, h2 {
   width: 200px;
   margin: 10px;
   transition: transform 0.3s ease;
+  .polaroid {
+  border: 4px solid #e0dcdc; /* soft pastel grey */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  background: #fff;
+  position: relative;
+}
+
+.polaroid::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 2px dashed #c0bcbc;
+  border-radius: 16px;
+  pointer-events: none;
+}
+
 }
 .polaroid:hover {
   transform: scale(1.05) rotate(1deg);
