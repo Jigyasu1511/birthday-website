@@ -1,19 +1,38 @@
-<!DOCTYPE html><html><head>
-<title>Gallery</title><link rel="stylesheet" href="css/style.css"></head><body><nav>
-<a href="index.html">Home</a>
-<a href="message.html">Message</a>
-<a href="gallery.html">Gallery</a>
-<a href="game.html">Game</a>
-<a href="cake.html">Cake</a>
-<a href="thankyou.html">Thank You</a>
-</nav>
-<section>
-<h2>Our Memories 📸</h2>
-<div class="gallery">
-  <img src="images/photo1.jpg" class="polaroid" alt="photo1">
-  <img src="images/photo2.jpg" class="polaroid" alt="photo2">
-  <img src="images/photo3.jpg" class="polaroid" alt="photo3">
-  <img src="images/photo4.jpg" class="polaroid" alt="photo4">
-  <img src="images/photo5.jpg" class="polaroid" alt="photo5">
-</div>
-</section></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery</title>
+  <style>
+    body { margin:0; font-family:'Segoe UI',sans-serif; background:#fffaf6; text-align:center; }
+    nav { background:#fff; padding:12px 0; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+    nav a { margin:0 15px; text-decoration:none; color:#7b2cbf; font-weight:600; }
+    h1 { color:#7b2cbf; margin:30px 0 20px; }
+    .polaroid-gallery { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+    .polaroid { background:#fff; padding:10px; box-shadow:0 4px 8px rgba(0,0,0,0.2); border-radius:12px; width:220px; transition:transform 0.3s; }
+    .polaroid:hover { transform:scale(1.05) rotate(1deg); }
+    .polaroid img { width:100%; border-radius:10px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="message.html">Message</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="game.html">Game</a>
+    <a href="cake.html">Cake</a>
+    <a href="thankyou.html">Thank You</a>
+  </nav>
+  <h1>📸 Friendship Memories 📸</h1>
+  <div class="polaroid-gallery">
+    <div class="polaroid"><img src="assets/images/polaroid_1.jpg" alt="Memory 1"></div>
+    <div class="polaroid"><img src="assets/images/polaroid_2.jpg" alt="Memory 2"></div>
+    <div class="polaroid"><img src="assets/images/polaroid_3.jpg" alt="Memory 3"></div>
+    <div class="polaroid"><img src="assets/images/polaroid_4.jpg" alt="Memory 4"></div>
+    <div class="polaroid"><img src="assets/images/polaroid_5.jpg" alt="Memory 5"></div>
+    <div class="polaroid"><img src="assets/images/polaroid_6.jpg" alt="Memory 6"></div>
+    <div class="polaroid"><img src="assets/images/polaroid_7.jpg" alt="Memory 7"></div>
+  </div>
+</body>
+</html>
