@@ -11,4 +11,58 @@
 <h2>Thank You for Being You and My Friend 💖</h2>
 <p>This was all made by a friend for her most special friend....😉</p>
 </section>
+  <!-- ✨ Poem card with typewriter effect -->
+<section class="poem-card">
+  <h2>Jaisi Dosti Waisi Vibe 🤝</h2>
+  <pre id="poem-typing"></pre>
+</section>
+
+<style>
+  /* --- poem styling (safe to append) --- */
+  .poem-card{
+    max-width: 760px;
+    margin: 60px auto;
+    padding: 40px 28px;
+    background:#fff7f2;
+    border-radius:18px;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    font-family:'Segoe UI',sans-serif;
+    color:#49307e;
+    line-height:1.7;
+  }
+  .poem-card h2{
+    margin-top:0;
+    margin-bottom:20px;
+    font-size:1.6rem;
+    color:#7b2cbf;
+  }
+  /* make sure the <pre> wraps lines nicely */
+  #poem-typing{
+    white-space:pre-wrap;
+    font-size:1.05rem;
+  }
+</style>
+
+<script>
+  /* --- simple typewriter --- */
+  const poemText = `Shuruaat random thi, par vibe instantly match ho gayi,
+Har din ki good morning, har prayer mein place fix ho gayi।
+Kabhi formality nahi lagi, na kabhi pressure feel hua,
+Aap ke saath har feeling thoda easy aur real hua।
+Ek chhoti si wish, ek casual si smile,
+Aapke gestures hamesha jaate hain that extra mile।
+Thank you for turning ordinary moments into stories worth saving,
+Aapki dosti hi wo gift hai jo har din ko celebration bana deti hai.`;
+
+  let idx = 0, speed = 30;
+  function typeLine(){
+    if(idx < poemText.length){
+      document.getElementById('poem-typing').textContent += poemText.charAt(idx);
+      idx++;
+      setTimeout(typeLine, speed);
+    }
+  }
+  window.addEventListener('load', typeLine);
+</script>
+
 </body></html>
