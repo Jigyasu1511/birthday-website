@@ -67,7 +67,14 @@ h1, h2 {
   padding: 8px;
   background: #fff;
   position: relative;
+    
 }
+  .polaroid {
+  border: 3px double #c4b7a6;
+  background: #fffdf9;
+  filter: contrast(1.05) saturate(1.05);
+}
+
 
 .polaroid::before {
   content: "";
