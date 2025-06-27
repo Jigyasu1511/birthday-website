@@ -2,101 +2,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Spin the Wheel!</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-:root{--violet:#7b2cbf;--pink:#ff5c8d;--cream:#fef7f1;}
-body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--cream);text-align:center;overflow:hidden;}
-nav{background:#fff;padding:12px;box-shadow:0 2px 4px #0001;}
-nav a{margin:0 14px;text-decoration:none;color:var(--violet);font-weight:600;}
-h1{color:var(--violet);margin:30px 0 10px;font-size:1.8rem}
-/* wheel */
-.wheel-wrap{position:relative;display:inline-block;margin-top:10px;}
-#wheel{width:280px;height:280px;border-radius:50%;border:8px solid var(--violet);
-background:conic-gradient(var(--pink) 0deg 45deg,#ffb6c1 45deg 90deg,
-var(--pink) 90deg 135deg,#ffb6c1 135deg 180deg,var(--pink) 180deg 225deg,
-#ffb6c1 225deg 270deg,var(--pink) 270deg 315deg,#ffb6c1 315deg 360deg);
-transition:transform 4s cubic-bezier(.25,.8,.25,1);}
-/* labels */
-.wheel-label{position:absolute;left:50%;top:50%;width:50%;transform-origin:0% 0%;
-font-size:13px;font-weight:600;color:#fff;text-shadow:0 1px 2px #0005;pointer-events:none;}
-.l1{transform:rotate(22.5deg) translateX(-50%) translateY(-130%);}
-.l2{transform:rotate(67.5deg) translateX(-50%) translateY(-130%);}
-.l3{transform:rotate(112.5deg) translateX(-50%) translateY(-130%);}
-.l4{transform:rotate(157.5deg) translateX(-50%) translateY(-130%);}
-.l5{transform:rotate(202.5deg) translateX(-50%) translateY(-130%);}
-.l6{transform:rotate(247.5deg) translateX(-50%) translateY(-130%);}
-.l7{transform:rotate(292.5deg) translateX(-50%) translateY(-130%);}
-.l8{transform:rotate(337.5deg) translateX(-50%) translateY(-130%);}
-.pointer{width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;
-border-bottom:30px solid var(--violet);position:absolute;left:50%;top:-30px;transform:translateX(-50%);}
-.spin-btn{margin-top:25px;padding:12px 30px;background:var(--pink);color:#fff;border:none;
-border-radius:30px;font-size:1rem;font-weight:600;cursor:pointer;}
-.spin-btn:disabled{opacity:.5;cursor:not-allowed;}
-#result{margin-top:25px;font-size:1.2rem;color:var(--violet);min-height:2em;font-weight:600;}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spin the Wheel</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8f4;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background: white;
+      padding: 1rem 0;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    nav a {
+      text-decoration: none;
+      color: rebeccapurple;
+      font-weight: bold;
+      margin: 0 15px;
+    }
+    h1 {
+      color: rebeccapurple;
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+    .wheel-container {
+      margin-top: 30px;
+      position: relative;
+    }
+    #wheel {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 10px solid rebeccapurple;
+      margin: auto;
+      position: relative;
+      transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+    .spin-btn {
+      margin-top: 30px;
+      background: hotpink;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 1rem;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .pointer {
+      width: 0; 
+      height: 0; 
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 25px solid rebeccapurple;
+      position: absolute;
+      top: -25px;
+      left: calc(50% - 15px);
+    }
+    #result {
+      margin-top: 25px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #444;
+    }
+  </style>
 </head>
 <body>
-<nav>
-  <a href="index.html">Home</a>
-  <a href="message.html">Message</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="game.html">Game</a>
-  <a href="cake.html">Cake</a>
-  <a href="thankyou.html">Thank You</a>
-</nav>
-
-<h1>🎉 Spin the Friendship Wheel! 🎉</h1>
-
-<div class="wheel-wrap">
-  <div id="wheel">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="message.html">Message</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="game.html">Game</a>
+    <a href="cake.html">Cake</a>
+    <a href="thankyou.html">Thank You</a>
+  </nav>
+  <h1>🎉 Spin the Friendship Wheel! 🎉</h1>
+  <div class="wheel-container">
     <div class="pointer"></div>
-    <div class="wheel-label l1">Roast<br>Coupon</div>
-    <div class="wheel-label l2">Sing<br>a Song</div>
-    <div class="wheel-label l3">Embarrass<br>Moment</div>
-    <div class="wheel-label l4">Lifetime<br>Sarcasm</div>
-    <div class="wheel-label l5">Weird<br>Nickname</div>
-    <div class="wheel-label l6">Oscar<br>Speech</div>
-    <div class="wheel-label l7">5 Nice<br>Things</div>
-    <div class="wheel-label l8">Funniest<br>Memory</div>
+    <canvas id="wheel" width="300" height="300"></canvas>
+    <button class="spin-btn" onclick="spinWheel()">SPIN</button>
   </div>
-</div>
+  <div id="result"></div>
 
-<button id="spin" class="spin-btn">SPIN</button>
-<div id="result"></div>
+  <script>
+    const canvas = document.getElementById("wheel");
+    const ctx = canvas.getContext("2d");
+    const segments = [
+      "One free roast coupon 😉",
+      "Sing a song for me 😁",
+      "Embarrassing moment? Spill 🫣",
+      "Lifetime supply of my sarcasm 👀",
+      "Weirdest nickname? 🤣",
+      "Dramatic Oscar speech 🎭",
+      "5 things you admire about me 😛",
+      "Funniest friendship memory ✨"
+    ];
+    const colors = ["#ff99cc", "#ffb6b9", "#ffc9de", "#ffe0f0", "#ff99cc", "#ffb6b9", "#ffc9de", "#ffe0f0"];
+    const segAngle = 360 / segments.length;
+    let startAngle = 0;
+    let currentAngle = 0;
 
-<script>
-const wheel = document.getElementById('wheel');
-const spinBtn = document.getElementById('spin');
-const result = document.getElementById('result');
-const rewards=[
-"😉 One free roast coupon you can redeem!",
-"😁 You have to sing a song for me!",
-"🫣 Embarrassing moment? Spill one now!",
-"👀 Yay!!! You get a lifetime supply of my sarcasm!",
-"🤣 Tell the weirdest nickname you’ve ever had!",
-"🏆 Record a dramatic 'Oscar‑winning' thank‑you speech!",
-"😛 Say 5 things you admire about me!",
-"✨ Share the funniest memory of our friendship!"
-];
-let spinning=false;
-spinBtn.addEventListener('click',()=>{
- if(spinning)return;
- spinning=true;
- spinBtn.disabled=true;
- result.textContent="";
- const extra=Math.floor(Math.random()*360);
- const rot=1080+extra; // 3 turns + extra
- wheel.style.transform=`rotate(${rot}deg)`;
- setTimeout(()=>{
-   const norm=(360-(extra%360))%360;
-   const segment=Math.floor(norm/45);
-   result.textContent=rewards[segment];
-   spinning=false;
-   spinBtn.disabled=false;
- },4100);
-});
-</script>
+    function drawWheel() {
+      for (let i = 0; i < segments.length; i++) {
+        const angle = segAngle * i * Math.PI / 180;
+        ctx.beginPath();
+        ctx.moveTo(150, 150);
+        ctx.arc(150, 150, 150, angle, angle + segAngle * Math.PI / 180);
+        ctx.fillStyle = colors[i];
+        ctx.fill();
+        ctx.save();
+        ctx.translate(150, 150);
+        ctx.rotate(angle + (segAngle / 2) * Math.PI / 180);
+        ctx.textAlign = "right";
+        ctx.fillStyle = "#660066";
+        ctx.font = "bold 14px sans-serif";
+        ctx.fillText("Friendship Dare", 130, 5);
+        ctx.restore();
+      }
+    }
+
+    drawWheel();
+
+    function spinWheel() {
+      const spins = Math.floor(Math.random() * 5 + 5);
+      const finalAngle = spins * 360 + Math.floor(Math.random() * 360);
+      currentAngle += finalAngle;
+      canvas.style.transform = `rotate(${currentAngle}deg)`;
+
+      setTimeout(() => {
+        const normalizedAngle = (360 - (currentAngle % 360)) % 360;
+        const index = Math.floor(normalizedAngle / segAngle);
+        document.getElementById("result").innerText = segments[index];
+      }, 4200);
+    }
+  </script>
 </body>
 </html>
