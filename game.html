@@ -1,105 +1,102 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Balloon Game</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      background: #e3f2fd;
-      font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
-      margin: 0;
-      text-align: center;
-    }
-    nav {
-      background: white;
-      padding: 12px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #5c4d91;
-      font-weight: bold;
-    }
-    h1 {
-      margin-top: 30px;
-      color: #5c4d91;
-      font-size: 2.2rem;
-    }
-    .balloon {
-      position: absolute;
-      width: 50px;
-      height: 70px;
-      background: radial-gradient(circle at 30% 30%, #fff6, transparent 60%), #ffadad;
-      border: 2px solid #ff6f91;
-      border-radius: 50% 50% 45% 45%;
-      cursor: pointer;
-      animation: float 6s linear infinite;
-    }
-    .balloon::after {
-      content: "";
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 6px;
-      height: 10px;
-      background: #ff6f91;
-      border-radius: 3px;
-    }
-    @keyframes float {
-      0% { transform: translateY(100vh) rotate(0deg); }
-      100% { transform: translateY(-150vh) rotate(360deg); }
-    }
-    #win-message {
-      display: none;
-      font-size: 2rem;
-      color: #ff4081;
-      margin-top: 100px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Spin the Wheel!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{--violet:#7b2cbf;--pink:#ff5c8d;--cream:#fef7f1;}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--cream);text-align:center;overflow:hidden;}
+nav{background:#fff;padding:12px;box-shadow:0 2px 4px #0001;}
+nav a{margin:0 14px;text-decoration:none;color:var(--violet);font-weight:600;}
+h1{color:var(--violet);margin:30px 0 10px;font-size:1.8rem}
+/* wheel */
+.wheel-wrap{position:relative;display:inline-block;margin-top:10px;}
+#wheel{width:280px;height:280px;border-radius:50%;border:8px solid var(--violet);
+background:conic-gradient(var(--pink) 0deg 45deg,#ffb6c1 45deg 90deg,
+var(--pink) 90deg 135deg,#ffb6c1 135deg 180deg,var(--pink) 180deg 225deg,
+#ffb6c1 225deg 270deg,var(--pink) 270deg 315deg,#ffb6c1 315deg 360deg);
+transition:transform 4s cubic-bezier(.25,.8,.25,1);}
+/* labels */
+.wheel-label{position:absolute;left:50%;top:50%;width:50%;transform-origin:0% 0%;
+font-size:13px;font-weight:600;color:#fff;text-shadow:0 1px 2px #0005;pointer-events:none;}
+.l1{transform:rotate(22.5deg) translateX(-50%) translateY(-130%);}
+.l2{transform:rotate(67.5deg) translateX(-50%) translateY(-130%);}
+.l3{transform:rotate(112.5deg) translateX(-50%) translateY(-130%);}
+.l4{transform:rotate(157.5deg) translateX(-50%) translateY(-130%);}
+.l5{transform:rotate(202.5deg) translateX(-50%) translateY(-130%);}
+.l6{transform:rotate(247.5deg) translateX(-50%) translateY(-130%);}
+.l7{transform:rotate(292.5deg) translateX(-50%) translateY(-130%);}
+.l8{transform:rotate(337.5deg) translateX(-50%) translateY(-130%);}
+.pointer{width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;
+border-bottom:30px solid var(--violet);position:absolute;left:50%;top:-30px;transform:translateX(-50%);}
+.spin-btn{margin-top:25px;padding:12px 30px;background:var(--pink);color:#fff;border:none;
+border-radius:30px;font-size:1rem;font-weight:600;cursor:pointer;}
+.spin-btn:disabled{opacity:.5;cursor:not-allowed;}
+#result{margin-top:25px;font-size:1.2rem;color:var(--violet);min-height:2em;font-weight:600;}
+</style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="message.html">Message</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="game.html">Game</a>
-    <a href="cake.html">Cake</a>
-    <a href="thankyou.html">Thank You</a>
-  </nav>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="message.html">Message</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="game.html">Game</a>
+  <a href="cake.html">Cake</a>
+  <a href="thankyou.html">Thank You</a>
+</nav>
 
-  <h1>🎈 Pop All the Balloons! 🎈</h1>
-  <div id="win-message">🎉 You Won My Friendship! 🎉</div>
+<h1>🎉 Spin the Friendship Wheel! 🎉</h1>
 
-  <script>
-    const totalBalloons = 10;
-    let popped = 0;
+<div class="wheel-wrap">
+  <div id="wheel">
+    <div class="pointer"></div>
+    <div class="wheel-label l1">Roast<br>Coupon</div>
+    <div class="wheel-label l2">Sing<br>a Song</div>
+    <div class="wheel-label l3">Embarrass<br>Moment</div>
+    <div class="wheel-label l4">Lifetime<br>Sarcasm</div>
+    <div class="wheel-label l5">Weird<br>Nickname</div>
+    <div class="wheel-label l6">Oscar<br>Speech</div>
+    <div class="wheel-label l7">5 Nice<br>Things</div>
+    <div class="wheel-label l8">Funniest<br>Memory</div>
+  </div>
+</div>
 
-    for (let i = 0; i < totalBalloons; i++) {
-      const b = document.createElement("div");
-      b.className = "balloon";
-      b.style.left = Math.random() * 90 + "%";
-      b.style.animationDuration = (4 + Math.random() * 2) + "s";
+<button id="spin" class="spin-btn">SPIN</button>
+<div id="result"></div>
 
-      b.addEventListener("click", function () {
-        this.style.transition = "transform 0.3s ease, opacity 0.3s ease";
-        this.style.transform = "scale(0)";
-        this.style.opacity = "0";
-        setTimeout(() => {
-          this.remove();
-          popped++;
-          if (popped === totalBalloons) {
-            document.getElementById("win-message").style.display = "block";
-          }
-        }, 300);
-      });
-
-      document.body.appendChild(b);
-    }
-  </script>
+<script>
+const wheel = document.getElementById('wheel');
+const spinBtn = document.getElementById('spin');
+const result = document.getElementById('result');
+const rewards=[
+"😉 One free roast coupon you can redeem!",
+"😁 You have to sing a song for me!",
+"🫣 Embarrassing moment? Spill one now!",
+"👀 Yay!!! You get a lifetime supply of my sarcasm!",
+"🤣 Tell the weirdest nickname you’ve ever had!",
+"🏆 Record a dramatic 'Oscar‑winning' thank‑you speech!",
+"😛 Say 5 things you admire about me!",
+"✨ Share the funniest memory of our friendship!"
+];
+let spinning=false;
+spinBtn.addEventListener('click',()=>{
+ if(spinning)return;
+ spinning=true;
+ spinBtn.disabled=true;
+ result.textContent="";
+ const extra=Math.floor(Math.random()*360);
+ const rot=1080+extra; // 3 turns + extra
+ wheel.style.transform=`rotate(${rot}deg)`;
+ setTimeout(()=>{
+   const norm=(360-(extra%360))%360;
+   const segment=Math.floor(norm/45);
+   result.textContent=rewards[segment];
+   spinning=false;
+   spinBtn.disabled=false;
+ },4100);
+});
+</script>
 </body>
 </html>
